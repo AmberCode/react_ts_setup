@@ -1,8 +1,13 @@
 import * as React from 'react';
+import * as Styles from './../styles/Header.css';
 
 function Header() {
     return (
-        <header className='header'>This is the header</header>
+        <header>
+            <div className={Styles.header}>
+                Header !!!
+            </div>
+        </header>
     )
 }
 
