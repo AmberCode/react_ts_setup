@@ -2,15 +2,7 @@ import * as webpack from 'webpack';
 import * as HtmlWebPackPlugin from 'html-webpack-plugin';
 import * as path from 'path';
 import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
-
-const htmlPlugin = new HtmlWebPackPlugin({
-    template: './src/index.html'
-});
-
-const miniCssPlugin = new MiniCssExtractPlugin({
-    filename: "[name].bundle.[chunkhash].css",
-    chunkFilename: "[name].bundle.[chunkhash].css"
-});
+import * as CleanWebPlugin from 'clean-webpack-plugin';
 
 const config: webpack.Configuration = {
     entry: "./src/index.tsx",
@@ -47,8 +39,15 @@ const config: webpack.Configuration = {
         ]
     },
     plugins: [
-        htmlPlugin,
-        miniCssPlugin,
+        new webpack.ProgressPlugin(),
+        new CleanWebPlugin.CleanWebpackPlugin(),
+        new HtmlWebPackPlugin({
+            template: './src/index.html'
+        }),
+        new MiniCssExtractPlugin({
+            filename: "[name].bundle.[chunkhash].css",
+            chunkFilename: "[name].bundle.[chunkhash].css"
+        }),
         new webpack.WatchIgnorePlugin([
             /\.d\.ts$/
         ])
