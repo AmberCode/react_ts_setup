@@ -7,10 +7,17 @@ const htmlPlugin = new HtmlWebPackPlugin({
     template: './src/index.html'
 });
 
-const miniCssPlugin = new MiniCssExtractPlugin();
+const miniCssPlugin = new MiniCssExtractPlugin({
+    filename: "[name].bundle.[chunkhash].css",
+    chunkFilename: "[name].bundle.[chunkhash].css"
+});
 
 const config: webpack.Configuration = {
     entry: "./src/index.tsx",
+    output: {
+        path: path.resolve(__dirname, "dist"),
+        filename: '[name].bundle.[chunkhash].js',
+    },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.json', '.css']
     },
