@@ -5,7 +5,7 @@ function Header() {
     return (
         <header>
             <div className={Styles.header}>
-                Header !!!
+                Header 2!!!
             </div>
         </header>
     )

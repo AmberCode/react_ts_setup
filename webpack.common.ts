@@ -3,8 +3,6 @@ import * as HtmlWebPackPlugin from 'html-webpack-plugin';
 import * as path from 'path';
 import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-const devMode = process.env.NODE_ENV !== 'production';
-
 const htmlPlugin = new HtmlWebPackPlugin({
     template: './src/index.html'
 });
@@ -12,7 +10,6 @@ const htmlPlugin = new HtmlWebPackPlugin({
 const miniCssPlugin = new MiniCssExtractPlugin();
 
 const config: webpack.Configuration = {
-    mode : devMode ? 'development' : 'production',
     entry: "./src/index.tsx",
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -31,8 +28,9 @@ const config: webpack.Configuration = {
                 exclude: /node_modules/,
                 include: path.join(__dirname, 'src'),
                 use: [
-                    //'style-loader',
-                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: MiniCssExtractPlugin.loader
+                    },
                     {
                       loader: 'css-loader',
                       options: {
@@ -53,9 +51,5 @@ const config: webpack.Configuration = {
         ])
     ]
 };
-
-if (devMode) {
-    config.devtool = 'source-map';
-}
 
 export default config;
