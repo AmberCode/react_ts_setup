@@ -11,10 +11,6 @@ const miniCssPlugin = new MiniCssExtractPlugin();
 
 const config: webpack.Configuration = {
     entry: "./src/index.tsx",
-    // output: {
-    //     path: path.resolve(__dirname, "dist"),
-    //     filename: "bundle.js"
-    // },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.json', '.css']
     },
