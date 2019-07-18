@@ -35,6 +35,18 @@ const config: webpack.Configuration = {
                       }
                     }
                   ]
+            },
+            {
+                test:/\.(png|jp(e*)g|svg)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 2000,
+                            name: 'images/[name].[hash].[ext]'
+                        }
+                    }
+                ]
             }
         ]
     },
