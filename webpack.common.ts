@@ -28,11 +28,11 @@ const config: webpack.Configuration = {
                     },
                     {
                       loader: 'css-loader',
-                      options: {
-                        modules: {
-                            localIdentName: "[name]__[local]--[hash:base64:5]"
-                        }
-                      }
+                    //   options: {
+                    //     modules: {
+                    //         localIdentName: "[name]__[local]--[hash:base64:5]"
+                    //     }
+                    //   }
                     }
                   ]
             },

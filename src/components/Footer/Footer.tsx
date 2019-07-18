@@ -1,11 +1,10 @@
 import * as React from 'react';
-import * as css from './Footer.css';
-import cx from 'classnames';
+import './Footer.css';
 
 function Footer() {
     return (
         <footer>
-            <div className={cx(css.aba,css.lol)}>This is footer 3</div>
+            <div className="aba lol">This is footer 3</div>
         </footer>
     )
 }
